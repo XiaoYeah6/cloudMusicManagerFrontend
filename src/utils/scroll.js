@@ -1,6 +1,7 @@
 const scroll = {
     isEnd: false,
     start(callback) {
+        console.log('开始start')
         let timer = null
         callback && window.addEventListener('scroll', () => {
             if (timer) {
@@ -19,7 +20,7 @@ const scroll = {
                     // 请求数据
                     callback()
                 }
-            }, 300)
+            }, 1000)
         })
     },
     end() {
