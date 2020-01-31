@@ -37,12 +37,14 @@
 </template>
 
 <script>
-import { fetchList } from "@/api/swiper";
+import { fetchList, del } from "@/api/swiper";
 export default {
   data() {
     return {
       swiperList: [],
-      loading: false
+      loading: false,
+      delDialogVisible: false,
+      swiper: {}
     };
   },
   created() {
@@ -65,7 +67,23 @@ export default {
         });
         this.getList();
       }
-    }
+    },
+    onDel(row){
+      this.swiper = row
+      this.delDialogVisible = true
+    },
+    doDel(){
+      this.loading = true
+      this.delDialogVisible = false
+      del(this.swiper).then((res)=>{
+        this.loading = false
+        this.getList()
+        this.$message({
+          message: '删除成功',
+          type: 'success'
+        })
+      })
+    },
   }
 };
 </script>
