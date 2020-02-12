@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-const baseURL = 'http://localhost:3000'
+const baseURL = 'http://www.yeyilong.site:3001'
 
 export function fetchList(params){
     return request({

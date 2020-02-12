@@ -1,7 +1,6 @@
 const scroll = {
     isEnd: false,
     start(callback) {
-        console.log('开始start')
         let timer = null
         callback && window.addEventListener('scroll', () => {
             if (timer) {
@@ -15,12 +14,12 @@ const scroll = {
                 const scrollHeight = document.documentElement.scrollHeight
                 // 浏览器窗口（文档）的可视高度,就是肉眼可见的那部分全屏高度
                 const clientHeight = document.documentElement.clientHeight
-                if (!this.isEnd && scrollHeight == scrollTop + clientHeight) {
+                if (!this.isEnd && scrollHeight < scrollTop + clientHeight * 1.1) {
                     window.scrollTo(0, scrollTop - 100)
                     // 请求数据
                     callback()
                 }
-            }, 1000)
+            }, 600)
         })
     },
     end() {
