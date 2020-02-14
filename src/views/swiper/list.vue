@@ -54,8 +54,9 @@ export default {
     getList() {
       this.loading = true;
       fetchList().then(res => {
-        console.log(res);
         this.swiperList = res.data;
+        this.loading = false;
+      }).catch(()=>{
         this.loading = false;
       });
     },
