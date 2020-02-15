@@ -3,7 +3,7 @@
     <div class="filter-container">
       <el-upload
         class="upload-demo"
-        action="http://localhost:3000/swiper/upload"
+        action="http://106.12.7.183:3001/swiper/upload"
         :on-success="uploadSuccess"
         :show-file-list="false"
       >

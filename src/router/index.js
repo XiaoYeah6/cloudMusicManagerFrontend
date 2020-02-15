@@ -36,11 +36,6 @@ export const constantRoutes = [
     redirect: '/playlist/list'
   },
   {
-    path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
-  },
-  {
     path: '/playlist',
     component: Layout,
     children: [
